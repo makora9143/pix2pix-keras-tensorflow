@@ -1,0 +1,4 @@
+*.pyc
+datasets/
+model/
+output_imgs/
