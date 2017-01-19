@@ -12,18 +12,18 @@ The examples from the paper:
 ### Prerequistic
 
 - Software
-    - python2
-    - tensorflow 0.12
-    - keras 
-    - numpy
-    - scipy
-    - matplotlib
-    - progressbar2
+    - python2.7
+    - tensorflow==0.12.0
+    - keras==1.2.0 
+    - numpy==1.11.3
+    - scipy==0.18.1
+    - matplotlib==1.5.3
+    - progressbar2==3.12.0
 
 - Hardware
     - nVIDIA GPU (Highly Recommend) 
 
-### How to start (WIP)
+### Install
 
 - Clone this repo to your PC.
 
@@ -32,6 +32,9 @@ $ git clone https://github.com/makora9143/pix2pix-keras-tensorflow.git
 $ cd pix2pix-keras-tensorflow
 
 ```
+
+### Usage (WIP)
+
 - To train the model, just run the command below. (It will takes few hours.)
   - [dataset] = facades / cityscapes / maps / edges2shoes / edges2handbags
 ```bash
@@ -52,7 +55,7 @@ $ python test.py
 可能な限り，論文内及び著者の実装に準拠しています．
 
 元論文の出力例：
-![examples](examples.jpg)
+![examples](original.jpg)
 
 
 ## 設定
@@ -60,24 +63,28 @@ $ python test.py
 ### 必要な環境
 
 - ソフトウェア・ライブラリ
-    - python2
-    - tensorflow 0.12
-    - keras 
-    - numpy
-    - scipy
-    - matplotlib
-    - progressbar2
+    - python2.7
+    - tensorflow==0.12.0
+    - keras==1.2.0 
+    - numpy==1.11.3
+    - scipy==0.18.1
+    - matplotlib==1.5.3
+    - progressbar2==3.12.0
 
 - ハードウェア
     - nVIDIA GPU (推奨) 
 
-### 実行手順(WIP)
+### 準備
 
 - ローカルPCに`git clone`してください．
 
 ```bash
 $ git clone https://github.com/makora9143/pix2pix-keras-tensorflow.git
 $ cd pix2pix-keras-tensorflow
+
+
+### 使い方
+
 
 ```
 - 学習するために，次のコマンドを実行してください．(数時間かかります．)
