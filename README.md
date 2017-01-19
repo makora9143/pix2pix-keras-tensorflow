@@ -1,7 +1,7 @@
 # pix2pix-keras-tensorflow
 
 Keras and TensorFlow hybrid-implementation of [Image-to-Image Translation Using Conditional Adversarial Networks](https://arxiv.org/pdf/1611.07004v1.pdf) that learns a mapping from input images to output images.
-This mplementation is as same as possible to the original paper.
+This implementation is as same as possible to the original paper.
 
 The examples from the paper:
 ![examples](examples.jpg)
