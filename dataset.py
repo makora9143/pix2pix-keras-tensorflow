@@ -43,15 +43,15 @@ class Dataset(object):
             self.dataset.append((img, label))
         print "load dataset done"
         print 'data size: %d' % len(self.dataset)
-        img_shape = list(self.dataset[0][0].shape)
-        label_shape = list(self.dataset[0][1].shape)
-        self.fine_size = img_shape[0]
+        self.img_shape = list(self.dataset[0][0].shape)
+        self.label_shape = list(self.dataset[0][1].shape)
+        self.fine_size = self.img_shape[0]
         self.crop_width = self.fine_size
         self.load_size = self.fine_size + 30
-        
-        self.img_data = tf.placeholder(tf.float32, shape=[None] + img_shape)
-        self.label_data = tf.placeholder(tf.float32, shape=[None] + label_shape)
-        self.queue = tf.FIFOQueue(shapes=[label_shape, img_shape],
+
+        self.img_data = tf.placeholder(tf.float32, shape=[None] + self.img_shape)
+        self.label_data = tf.placeholder(tf.float32, shape=[None] + self.label_shape)
+        self.queue = tf.FIFOQueue(shapes=[self.label_shape, self.img_shape],
                                            dtypes=[tf.float32, tf.float32],
                                            capacity=2000)
         self.enqueue_ops = self.queue.enqueue_many([self.label_data, self.img_data])
@@ -79,7 +79,6 @@ class Dataset(object):
         for labels, imgs in self.batch_iterator():
             sess.run(self.enqueue_ops, feed_dict={self.label_data: labels , self.img_data: imgs})
             sess.run(self.enqueue_ops, feed_dict={self.label_data: labels , self.img_data: imgs})
-            sess.run(self.enqueue_ops, feed_dict={self.label_data: labels , self.img_data: imgs})
     
     def start_threads(self, sess):
         threads = []
@@ -92,4 +91,7 @@ class Dataset(object):
     
     def get_size(self):
         return self.data_size
+
+    def get_shape(self):
+        return self.img_shape, self.label_shape
     
