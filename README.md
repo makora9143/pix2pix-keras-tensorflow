@@ -4,7 +4,7 @@ Keras and TensorFlow hybrid-implementation of [Image-to-Image Translation Using 
 This implementation is as same as possible to the original paper.
 
 The examples from the paper:
-![example](https://raw.github.com/wiki/makora9143/pix2pix-keras-tensorflow/original.jpg)
+![examples](original.jpg)
 
 
 ## Setup
