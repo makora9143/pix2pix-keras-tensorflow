@@ -179,7 +179,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
     # decoder
     #CD512 1=>2
     dec_conv0 = Deconvolution2D(ngf * 8, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 128, image_height / 128, ngf * 8),
+                        output_shape=(batch_size, int(np.ceil(image_width / 128.)), int(np.ceil(image_height / 128.)), ngf * 8),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -200,7 +200,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #CD512 2=>4
     dec_conv1 = Deconvolution2D(ngf * 8, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 64, image_height / 64, ngf * 8),
+                        output_shape=(batch_size, int(np.ceil(image_width / 64.)), int(np.ceil(image_height / 64.)), ngf * 8),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -220,7 +220,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #CD512 4=>8
     dec_conv2 = Deconvolution2D(ngf * 8, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 32, image_height / 32, ngf * 8),
+                        output_shape=(batch_size, int(np.ceil(image_width / 32.)), int(np.ceil(image_height / 32.)), ngf * 8),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -240,7 +240,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #C512 8=>16
     dec_conv3 = Deconvolution2D(ngf * 8, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 16, image_height / 16, ngf * 8),
+                        output_shape=(batch_size, int(np.ceil(image_width / 16.)), int(np.ceil(image_height / 16.)), ngf * 8),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -259,7 +259,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #C256 16=>32
     dec_conv4 = Deconvolution2D(ngf * 4, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 8, image_height / 8, ngf * 4),
+                        output_shape=(batch_size, int(np.ceil(image_width / 8.)), int(np.ceil(image_height / 8.)), ngf * 4),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -280,7 +280,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #C128 32=>64
     dec_conv5 = Deconvolution2D(ngf * 2, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 4, image_height / 4, ngf * 2),
+                        output_shape=(batch_size, int(np.ceil(image_width / 4.)), int(np.ceil(image_height / 4.)), ngf * 2),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
@@ -299,7 +299,7 @@ def create_netG(train_X, tmp_x, ngf, filter_size, image_width, image_height, inp
 
     #C64 64=>128
     dec_conv6 = Deconvolution2D(ngf, filter_size, filter_size, 
-                        output_shape=(batch_size, image_width / 2, image_height / 2, ngf),
+                        output_shape=(batch_size, int(np.ceil(image_width / 2.)), int(np.ceil(image_height / 2.)), ngf),
                         subsample=(2, 2), 
                                 init=my_init,
                         border_mode='same'
